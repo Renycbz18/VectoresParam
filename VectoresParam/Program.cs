@@ -14,13 +14,17 @@ namespace VectoresParam
             int[] x = new int[MAX];
             Leer(x);
             Imprimir(x);
+            if (buscar(x, 15) == true)
+                Console.WriteLine("\n encontrado");
+            else
+                Console.WriteLine("\n15 no existe");
             Console.ReadKey();
         }
 
 
         public static void Leer(int[] x)
         {
-            for(int i=0; i<MAX; i++)
+            for (int i = 0; i < MAX; i++)
             {
                 Console.WriteLine("\nINGRESE EL ELEMENTO {0}", i + 1);
                 x[i] = Int32.Parse(Console.ReadLine());
@@ -28,13 +32,27 @@ namespace VectoresParam
             }
         }
 
-        public static void Imprimir (int[] x)
+        public static void Imprimir(int[] x)
         {
-            foreach(int num in x)
+            foreach (int num in x)
             {
                 Console.WriteLine("\nELEMENTO {0}", num);
             }
         }
 
+        public static bool buscar(int[] x, int y)
+
+        {
+            bool Encontrado = false;
+            foreach (int num in x)
+            {
+                if (num == y)
+                {
+                    Encontrado = true;
+                    break;
+                }
+            }
+            return Encontrado;
+        }
     }
 }
